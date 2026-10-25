@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340" role="img" aria-label="ArchMCP Hub 5-Stage Integration &amp; Verification Workflow">
+  <title>ArchMCP Hub v1.0.0 — 5-Stage Safe Installation &amp; Verification Workflow</title>
+  <defs>
+    <marker id="wfArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#30B4A9" />
+    </marker>
+  </defs>
+  <rect width="1200" height="340" rx="16" fill="#101318" stroke="#303846" stroke-width="1.5" />
+  <text x="36" y="40" fill="#FD921E" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">SAFE LIFECYCLE WORKFLOW · ATOMIC BACKUP &amp; ROLLBACK</text>
+  <text x="36" y="68" fill="#F3F5F8" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="22" font-weight="700">How ArchMCP Hub Discovers, Installs, Validates &amp; Verifies Each Integration</text>
+  <g transform="translate(32, 96)" font-family="Segoe UI, Inter, Arial, sans-serif">
+    <rect x="0" y="0" width="206" height="196" rx="12" fill="#191E26" stroke="#30B4A9" stroke-width="1.5" />
+    <rect x="16" y="16" width="68" height="24" rx="6" fill="#1A2B2D" />
+    <text x="26" y="32" fill="#83D6C4" font-size="11.5" font-weight="700">STAGE 01</text>
+    <text x="16" y="64" fill="#F3F5F8" font-size="15.5" font-weight="700">Host Discovery</text>
+    <text x="16" y="90" fill="#9BA7B7" font-size="12">• Scans Program Files &amp; Win32</text>
+    <text x="16" y="108" fill="#9BA7B7" font-size="12">  Uninstall Registry</text>
+    <text x="16" y="130" fill="#9BA7B7" font-size="12">• Verifies real CAD .exe binary</text>
+    <text x="16" y="152" fill="#9BA7B7" font-size="12">• Evaluates version bounds</text>
+    <text x="16" y="174" fill="#83D6C4" font-size="11.5" font-weight="600">Status: Untested / Unsupported</text>
+    <line x1="210" y1="98" x2="228" y2="98" stroke="#30B4A9" stroke-width="2.2" marker-end="url(#wfArrow)" />
+    <rect x="234" y="0" width="206" height="196" rx="12" fill="#191E26" stroke="#30B4A9" stroke-width="1.5" />
+    <rect x="250" y="16" width="68" height="24" rx="6" fill="#1A2B2D" />
+    <text x="260" y="32" fill="#83D6C4" font-size="11.5" font-weight="700">STAGE 02</text>
+    <text x="250" y="64" fill="#F3F5F8" font-size="15.5" font-weight="700">Stage &amp; Venv Sync</text>
+    <text x="250" y="90" fill="#9BA7B7" font-size="12">• Bootstraps user-local uv.exe</text>
+    <text x="250" y="112" fill="#9BA7B7" font-size="12">• Downloads GitHub release &amp;</text>
+    <text x="250" y="130" fill="#9BA7B7" font-size="12">  computes SHA-256 hash</text>
+    <text x="250" y="152" fill="#9BA7B7" font-size="12">• Syncs isolated .venv / Py 3.12</text>
+    <text x="250" y="174" fill="#83D6C4" font-size="11.5" font-weight="600">Lock-safe robocopy sync</text>
+    <line x1="444" y1="98" x2="462" y2="98" stroke="#30B4A9" stroke-width="2.2" marker-end="url(#wfArrow)" />
+    <rect x="468" y="0" width="206" height="196" rx="12" fill="#191E26" stroke="#30B4A9" stroke-width="1.5" />
+    <rect x="484" y="16" width="68" height="24" rx="6" fill="#1A2B2D" />
+    <text x="494" y="32" fill="#83D6C4" font-size="11.5" font-weight="700">STAGE 03</text>
+    <text x="484" y="64" fill="#F3F5F8" font-size="15.5" font-weight="700">Bridge Deployment</text>
+    <text x="484" y="90" fill="#9BA7B7" font-size="12">• Creates .backup-timestamp</text>
+    <text x="484" y="112" fill="#9BA7B7" font-size="12">• Deploys pyRevit / Yak / GUP</text>
+    <text x="484" y="130" fill="#9BA7B7" font-size="12">  MAXScript / SketchUp Ruby</text>
+    <text x="484" y="152" fill="#9BA7B7" font-size="12">• Applies Revit 2022 shim &amp;</text>
+    <text x="484" y="174" fill="#83D6C4" font-size="11.5" font-weight="600">Safe Mode config defaults</text>
+    <line x1="678" y1="98" x2="696" y2="98" stroke="#30B4A9" stroke-width="2.2" marker-end="url(#wfArrow)" />
+    <rect x="702" y="0" width="206" height="196" rx="12" fill="#191E26" stroke="#FD921E" stroke-width="1.5" />
+    <rect x="718" y="16" width="68" height="24" rx="6" fill="#2A1F18" />
+    <text x="728" y="32" fill="#FD921E" font-size="11.5" font-weight="700">STAGE 04</text>
+    <text x="718" y="64" fill="#F3F5F8" font-size="15.5" font-weight="700">Handshake &amp; Merge</text>
+    <text x="718" y="90" fill="#9BA7B7" font-size="12">• Tests real stdio MCP launch</text>
+    <text x="718" y="108" fill="#9BA7B7" font-size="12">  (initialize + tools/list)</text>
+    <text x="718" y="130" fill="#9BA7B7" font-size="12">• Merges AI client JSON/TOML</text>
+    <text x="718" y="148" fill="#9BA7B7" font-size="12">  in UTF-8 without BOM</text>
+    <text x="718" y="174" fill="#FDB05E" font-size="11.5" font-weight="600">Auto-Rollback on any error</text>
+    <line x1="912" y1="98" x2="930" y2="98" stroke="#30B4A9" stroke-width="2.2" marker-end="url(#wfArrow)" />
+    <rect x="936" y="0" width="200" height="196" rx="12" fill="#191E26" stroke="#30B4A9" stroke-width="1.5" />
+    <rect x="952" y="16" width="68" height="24" rx="6" fill="#1A2B2D" />
+    <text x="962" y="32" fill="#83D6C4" font-size="11.5" font-weight="700">STAGE 05</text>
+    <text x="952" y="64" fill="#F3F5F8" font-size="15.5" font-weight="700">Live Health Check</text>
+    <text x="952" y="90" fill="#9BA7B7" font-size="12">• Probes in-host endpoint:</text>
+    <text x="952" y="108" fill="#9BA7B7" font-size="12">  :48884 / :1999 / :8765 /</text>
+    <text x="952" y="126" fill="#9BA7B7" font-size="12">  COM / :9876</text>
+    <text x="952" y="152" fill="#9BA7B7" font-size="12">• Distinguishes Installed vs.</text>
+    <text x="952" y="174" fill="#30B4A9" font-size="11.5" font-weight="700">Status: Verified (Live)</text>
+  </g>
+</svg>

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://archmcp.invalid/schemas/integration-registry.schema.json",
+  "title": "ArchMCP Hub Integration Registry",
+  "type": "object",
+  "required": ["schemaVersion", "registryRevision", "integrations"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "minimum": 1 },
+    "registryRevision": { "type": "string", "minLength": 1 },
+    "generatedAtUtc": { "type": ["string", "null"], "format": "date-time" },
+    "integrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "hostId", "displayName", "source", "release", "hostCompatibility", "runtime", "install", "security"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,80}$" },
+          "hostId": { "enum": ["3ds-max", "revit", "autocad", "sketchup", "rhino"] },
+          "displayName": { "type": "string", "minLength": 1 },
+          "source": {
+            "type": "object",
+            "required": ["kind", "repository", "officialProject", "releaseUri"],
+            "properties": {
+              "kind": { "enum": ["official", "github-release", "nuget", "pypi", "other-reviewed"] },
+              "repository": { "type": "string" },
+              "officialProject": { "type": "boolean" },
+              "releaseUri": { "type": "string", "format": "uri" }
+            },
+            "additionalProperties": false
+          },
+          "release": {
+            "type": "object",
+            "required": ["version", "channel", "assetUri", "sha256", "signatureUri"],
+            "properties": {
+              "version": { "type": "string" },
+              "channel": { "enum": ["stable", "preview", "experimental"] },
+              "assetUri": { "type": ["string", "null"], "format": "uri" },
+              "sha256": { "type": ["string", "null"], "pattern": "^[A-Fa-f0-9]{64}$" },
+              "signatureUri": { "type": ["string", "null"], "format": "uri" }
+            },
+            "additionalProperties": false
+          },
+          "hostCompatibility": {
+            "type": "object",
+            "required": ["minimumVersion", "maximumVersion", "testedVersions", "status"],
+            "properties": {
+              "minimumVersion": { "type": "string" },
+              "maximumVersion": { "type": ["string", "null"] },
+              "testedVersions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+              "status": { "enum": ["verified", "untested", "unsupported"] }
+            },
+            "additionalProperties": false
+          },
+          "runtime": {
+            "type": "object",
+            "required": ["transport", "command", "arguments", "requiredDependencies"],
+            "properties": {
+              "transport": { "enum": ["stdio", "streamable-http"] },
+              "command": { "type": ["string", "null"] },
+              "arguments": { "type": "array", "items": { "type": "string" } },
+              "requiredDependencies": { "type": "array", "items": { "type": "string" } }
+            },
+            "additionalProperties": false
+          },
+          "install": {
+            "type": "object",
+            "required": ["strategy", "installActions", "uninstallActions", "requiresElevation"],
+            "properties": {
+              "strategy": { "enum": ["manual-review-required", "managed-package", "host-native-extension"] },
+              "installActions": { "type": "array", "items": { "type": "string" } },
+              "uninstallActions": { "type": "array", "items": { "type": "string" } },
+              "requiresElevation": { "type": "boolean" }
+            },
+            "additionalProperties": false
+          },
+          "security": {
+            "type": "object",
+            "required": ["reviewStatus", "allowedCapabilities", "blockedByDefault"],
+            "properties": {
+              "reviewStatus": { "enum": ["not-reviewed", "in-review", "approved", "rejected"] },
+              "allowedCapabilities": { "type": "array", "items": { "type": "string" } },
+              "blockedByDefault": { "type": "boolean" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

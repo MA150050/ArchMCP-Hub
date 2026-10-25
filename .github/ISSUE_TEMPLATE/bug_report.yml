@@ -1,0 +1,74 @@
+name: Bug Report
+description: Report a bug, installation failure, or MCP integration issue in ArchMCP Hub.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > **SECURITY WARNING:** Do **NOT** publish API keys, access tokens, passwords, or private configuration data in this report. Always sanitize usernames and sensitive project paths before pasting logs.
+  - type: input
+    id: app_version
+    attributes:
+      label: ArchMCP Hub Version
+      value: "v1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: windows_version
+    attributes:
+      label: Windows Version & Architecture
+      placeholder: "Windows 11 Pro 23H2 (64-bit)"
+    validations:
+      required: true
+  - type: dropdown
+    id: engineering_app
+    attributes:
+      label: Engineering / CAD Host Application
+      options:
+        - Autodesk Revit
+        - Rhinoceros 3D (Rhino)
+        - Autodesk 3ds Max
+        - Autodesk AutoCAD
+        - SketchUp
+        - General UI / Environment Scanner
+    validations:
+      required: true
+  - type: input
+    id: engineering_app_version
+    attributes:
+      label: Engineering Application Exact Version
+      placeholder: "Revit 2025 / Rhino 8 / 3ds Max 2024 / AutoCAD 2025 / SketchUp 2026"
+    validations:
+      required: true
+  - type: dropdown
+    id: ai_client
+    attributes:
+      label: AI Client (MCP Agent)
+      options:
+        - OpenCode
+        - Claude Desktop (Microsoft Store MSIX 3.x)
+        - Claude Desktop (Standard Exe Installer)
+        - Claude Code
+        - OpenAI Codex
+        - Google Antigravity
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What Happened & Steps to Reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized Diagnostic Logs (%LOCALAPPDATA%\ArchMCP Hub\Logs\)
+      render: text
+  - type: checkboxes
+    id: security_check
+    attributes:
+      label: Privacy & Security Confirmation
+      options:
+        - label: I confirm that this report and pasted logs contain NO API keys, tokens, passwords, or private secrets.
+          required: true

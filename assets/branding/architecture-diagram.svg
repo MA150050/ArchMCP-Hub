@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" role="img" aria-label="ArchMCP Hub System Architecture Diagram">
+  <title>ArchMCP Hub v1.0.0 — Hybrid Local-First MCP Architecture</title>
+  <defs>
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#30B4A9" />
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#FD921E" />
+    </marker>
+  </defs>
+  <rect width="1200" height="620" rx="16" fill="#101318" stroke="#303846" stroke-width="1.5" />
+  <text x="36" y="42" fill="#30B4A9" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">SYSTEM ARCHITECTURE · HYBRID LOCAL-FIRST TOPOLOGY</text>
+  <text x="36" y="70" fill="#F3F5F8" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="24" font-weight="700">ArchMCP Hub v1.0.0 — Control Plane vs. Runtime Data Plane</text>
+  <g transform="translate(760, 32)" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="12">
+    <rect x="0" y="0" width="404" height="44" rx="8" fill="#191E26" stroke="#303846" />
+    <line x1="16" y1="22" x2="48" y2="22" stroke="#FD921E" stroke-width="2.5" stroke-dasharray="5,4" />
+    <text x="56" y="26" fill="#D5DCE6">Control Plane (Install/Verify)</text>
+    <line x1="230" y1="22" x2="262" y2="22" stroke="#30B4A9" stroke-width="2.5" />
+    <text x="270" y="26" fill="#D5DCE6">Runtime Data Plane (MCP)</text>
+  </g>
+  <g transform="translate(36, 96)" font-family="Segoe UI, Inter, Arial, sans-serif">
+    <rect x="0" y="0" width="1128" height="132" rx="14" fill="#191E26" stroke="#FD921E" stroke-width="1.5" />
+    <rect x="18" y="14" width="250" height="24" rx="6" fill="#2A1F18" />
+    <text x="28" y="30" fill="#FD921E" font-size="11.5" font-weight="700" letter-spacing="1">CONTROL PLANE · ARCHMCP HUB DESKTOP</text>
+    <rect x="18" y="48" width="260" height="68" rx="8" fill="#202733" stroke="#303846" />
+    <text x="32" y="70" fill="#F3F5F8" font-size="13.5" font-weight="700">WPF UI (ArchMCP.Hub.App)</text>
+    <text x="32" y="90" fill="#9BA7B7" font-size="11.5">Bilingual EN/AR · Dark/Light Themes</text>
+    <text x="32" y="106" fill="#83D6C4" font-size="11">Install · Uninstall · Repair · Verify</text>
+    <rect x="294" y="48" width="268" height="68" rx="8" fill="#202733" stroke="#303846" />
+    <text x="308" y="70" fill="#F3F5F8" font-size="13.5" font-weight="700">Core Engine (ArchMCP.Hub.Core)</text>
+    <text x="308" y="90" fill="#9BA7B7" font-size="11.5">EnvironmentScanner (Real Exe Check)</text>
+    <text x="308" y="106" fill="#83D6C4" font-size="11">CompatibilityResolver &amp; Live Probes</text>
+    <rect x="578" y="48" width="252" height="68" rx="8" fill="#202733" stroke="#303846" />
+    <text x="592" y="70" fill="#F3F5F8" font-size="13.5" font-weight="700">Declarative Registry</text>
+    <text x="592" y="90" fill="#9BA7B7" font-size="11.5">registry/integrations.json</text>
+    <text x="592" y="106" fill="#83D6C4" font-size="11">Draft 2020-12 JSON Schema Validated</text>
+    <rect x="846" y="48" width="264" height="68" rx="8" fill="#202733" stroke="#303846" />
+    <text x="860" y="70" fill="#F3F5F8" font-size="13.5" font-weight="700">PowerShell 5.1+ Automation</text>
+    <text x="860" y="90" fill="#9BA7B7" font-size="11.5">7-bit ASCII Clean · Backup &amp; Rollback</text>
+    <text x="860" y="106" fill="#83D6C4" font-size="11">uv Bootstrap · Stdio Handshake Check</text>
+  </g>
+  <g transform="translate(36, 266)" font-family="Segoe UI, Inter, Arial, sans-serif">
+    <rect x="0" y="0" width="300" height="320" rx="14" fill="#191E26" stroke="#303846" stroke-width="1.5" />
+    <text x="20" y="30" fill="#83D6C4" font-size="12" font-weight="700" letter-spacing="1">1. AI CLIENTS (MCP CLIENTS)</text>
+    <g transform="translate(18, 46)">
+      <rect x="0" y="0" width="264" height="44" rx="7" fill="#202733" stroke="#303846" />
+      <text x="14" y="19" fill="#F3F5F8" font-size="13" font-weight="700">OpenCode</text>
+      <text x="14" y="35" fill="#9BA7B7" font-size="10.5">CLI + ~/.config/opencode/opencode.json</text>
+      <rect x="0" y="52" width="264" height="44" rx="7" fill="#202733" stroke="#303846" />
+      <text x="14" y="71" fill="#F3F5F8" font-size="13" font-weight="700">Claude Desktop (3.x MSIX &amp; Std)</text>
+      <text x="14" y="87" fill="#9BA7B7" font-size="10.5">Claude-Data &amp; Roaming Configs (No BOM)</text>
+      <rect x="0" y="104" width="264" height="44" rx="7" fill="#202733" stroke="#303846" />
+      <text x="14" y="123" fill="#F3F5F8" font-size="13" font-weight="700">Claude Code</text>
+      <text x="14" y="139" fill="#9BA7B7" font-size="10.5">claude mcp add --scope user + ~/.claude.json</text>
+      <rect x="0" y="156" width="264" height="44" rx="7" fill="#202733" stroke="#303846" />
+      <text x="14" y="175" fill="#F3F5F8" font-size="13" font-weight="700">OpenAI Codex</text>
+      <text x="14" y="191" fill="#9BA7B7" font-size="10.5">codex mcp add + ~/.codex/config.toml</text>
+      <rect x="0" y="208" width="264" height="48" rx="7" fill="#202733" stroke="#303846" />
+      <text x="14" y="227" fill="#F3F5F8" font-size="13" font-weight="700">Google Antigravity</text>
+      <text x="14" y="244" fill="#9BA7B7" font-size="10.5">~/.gemini/config/mcp_config.json (SDK 2.x)</text>
+    </g>
+  </g>
+  <g transform="translate(416, 266)" font-family="Segoe UI, Inter, Arial, sans-serif">
+    <rect x="0" y="0" width="356" height="320" rx="14" fill="#191E26" stroke="#30B4A9" stroke-width="1.5" />
+    <text x="20" y="30" fill="#30B4A9" font-size="12" font-weight="700" letter-spacing="1">2. ISOLATED LOCAL MCP SERVERS</text>
+    <text x="20" y="47" fill="#9BA7B7" font-size="10.5">%LOCALAPPDATA%\ArchMCP Hub\Integrations\</text>
+    <g transform="translate(18, 58)">
+      <rect x="0" y="0" width="320" height="42" rx="7" fill="#202733" stroke="#385D58" />
+      <text x="12" y="18" fill="#F3F5F8" font-size="12.5" font-weight="700">revit-mcp-server (.venv / .venv-modern)</text>
+      <text x="12" y="34" fill="#83D6C4" font-size="10.5">Demolinator/revit-mcp-server + MCP 2.x Shim</text>
+      <rect x="0" y="50" width="320" height="42" rx="7" fill="#202733" stroke="#385D58" />
+      <text x="12" y="68" fill="#F3F5F8" font-size="12.5" font-weight="700">rhinomcp (uvx) / rhino7-mcp (Py 3.12)</text>
+      <text x="12" y="84" fill="#83D6C4" font-size="10.5">jingcheng-chen/rhinomcp &amp; reer-ide/rhino_mcp</text>
+      <rect x="0" y="100" width="320" height="42" rx="7" fill="#202733" stroke="#385D58" />
+      <text x="12" y="118" fill="#F3F5F8" font-size="12.5" font-weight="700">3dsmax-mcp (Safe Mode Enabled)</text>
+      <text x="12" y="134" fill="#83D6C4" font-size="10.5">cl0nazepamm/3dsmax-mcp (mcp_config.ini)</text>
+      <rect x="0" y="150" width="320" height="42" rx="7" fill="#202733" stroke="#385D58" />
+      <text x="12" y="168" fill="#F3F5F8" font-size="12.5" font-weight="700">autocad-mcp (COM + Headless ezdxf)</text>
+      <text x="12" y="184" fill="#83D6C4" font-size="10.5">U-C4N/Autocad-MCP (Scoped ALLOWED_PATHS)</text>
+      <rect x="0" y="200" width="320" height="42" rx="7" fill="#202733" stroke="#385D58" />
+      <text x="12" y="218" fill="#F3F5F8" font-size="12.5" font-weight="700">sketchup-mcp (archmcp_sketchup_server.py)</text>
+      <text x="12" y="234" fill="#83D6C4" font-size="10.5">NeoNexAI/sketchup-mcp (Pinned Python 3.12)</text>
+    </g>
+  </g>
+  <g transform="translate(852, 266)" font-family="Segoe UI, Inter, Arial, sans-serif">
+    <rect x="0" y="0" width="312" height="320" rx="14" fill="#191E26" stroke="#303846" stroke-width="1.5" />
+    <text x="20" y="30" fill="#83D6C4" font-size="12" font-weight="700" letter-spacing="1">3. IN-HOST CAD/BIM BRIDGES</text>
+    <text x="20" y="47" fill="#9BA7B7" font-size="10.5">Loopback-Only Local IPC / TCP / HTTP</text>
+    <g transform="translate(18, 58)">
+      <rect x="0" y="0" width="276" height="42" rx="7" fill="#202733" stroke="#303846" />
+      <text x="12" y="18" fill="#F3F5F8" font-size="12.5" font-weight="700">Autodesk Revit 2022–2027</text>
+      <text x="12" y="34" fill="#FD921E" font-size="10.5">HTTP :48884 · pyRevit Routes Extension</text>
+      <rect x="0" y="50" width="276" height="42" rx="7" fill="#202733" stroke="#303846" />
+      <text x="12" y="68" fill="#F3F5F8" font-size="12.5" font-weight="700">Rhinoceros 3D (Rhino 7 &amp; 8)</text>
+      <text x="12" y="84" fill="#FD921E" font-size="10.5">TCP :1999 (Yak) / :9877 (Py Bridge)</text>
+      <rect x="0" y="100" width="276" height="42" rx="7" fill="#202733" stroke="#303846" />
+      <text x="12" y="118" fill="#F3F5F8" font-size="12.5" font-weight="700">Autodesk 3ds Max 2021–2027</text>
+      <text x="12" y="134" fill="#FD921E" font-size="10.5">Named Pipe (2023+) / TCP :8765 (2021+)</text>
+      <rect x="0" y="150" width="276" height="42" rx="7" fill="#202733" stroke="#303846" />
+      <text x="12" y="168" fill="#F3F5F8" font-size="12.5" font-weight="700">Autodesk AutoCAD 2021–2027</text>
+      <text x="12" y="184" fill="#FD921E" font-size="10.5">Live ActiveX/COM + Headless DXF</text>
+      <rect x="0" y="200" width="276" height="42" rx="7" fill="#202733" stroke="#303846" />
+      <text x="12" y="218" fill="#F3F5F8" font-size="12.5" font-weight="700">SketchUp 2021–2026</text>
+      <text x="12" y="234" fill="#FD921E" font-size="10.5">TCP 127.0.0.1:9876 · su_mcp/main.rb</text>
+    </g>
+  </g>
+  <path d="M 186 228 L 186 260" stroke="#FD921E" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrowOrange)" />
+  <path d="M 594 228 L 594 260" stroke="#FD921E" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrowOrange)" />
+  <path d="M 1008 228 L 1008 260" stroke="#FD921E" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrowOrange)" />
+  <line x1="340" y1="380" x2="410" y2="380" stroke="#30B4A9" stroke-width="2.5" marker-end="url(#arrowTeal)" marker-start="url(#arrowTeal)" />
+  <rect x="348" y="354" width="56" height="20" rx="4" fill="#101318" stroke="#30B4A9" stroke-width="1" />
+  <text x="376" y="368" text-anchor="middle" fill="#83D6C4" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="10.5" font-weight="700">stdio</text>
+  <line x1="340" y1="470" x2="410" y2="470" stroke="#30B4A9" stroke-width="2.5" marker-end="url(#arrowTeal)" marker-start="url(#arrowTeal)" />
+  <rect x="348" y="444" width="56" height="20" rx="4" fill="#101318" stroke="#30B4A9" stroke-width="1" />
+  <text x="376" y="458" text-anchor="middle" fill="#83D6C4" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="10.5" font-weight="700">JSON-RPC</text>
+  <line x1="776" y1="345" x2="846" y2="345" stroke="#30B4A9" stroke-width="2.5" marker-end="url(#arrowTeal)" marker-start="url(#arrowTeal)" />
+  <line x1="776" y1="395" x2="846" y2="395" stroke="#30B4A9" stroke-width="2.5" marker-end="url(#arrowTeal)" marker-start="url(#arrowTeal)" />
+  <line x1="776" y1="445" x2="846" y2="445" stroke="#30B4A9" stroke-width="2.5" marker-end="url(#arrowTeal)" marker-start="url(#arrowTeal)" />
+  <line x1="776" y1="495" x2="846" y2="495" stroke="#30B4A9" stroke-width="2.5" marker-end="url(#arrowTeal)" marker-start="url(#arrowTeal)" />
+  <line x1="776" y1="545" x2="846" y2="545" stroke="#30B4A9" stroke-width="2.5" marker-end="url(#arrowTeal)" marker-start="url(#arrowTeal)" />
+</svg>

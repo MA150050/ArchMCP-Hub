@@ -1,0 +1,49 @@
+{
+  "$schema": "./integration-registry.schema.json",
+  "schemaVersion": 1,
+  "registryRevision": "0.1.0-draft",
+  "generatedAtUtc": null,
+  "integrations": [
+    {
+      "id": "revit-mcp-example",
+      "hostId": "revit",
+      "displayName": "Revit MCP integration (example record only)",
+      "source": {
+        "kind": "github-release",
+        "repository": "OWNER/REPOSITORY",
+        "officialProject": false,
+        "releaseUri": "https://github.com/OWNER/REPOSITORY/releases"
+      },
+      "release": {
+        "version": "0.0.0",
+        "channel": "experimental",
+        "assetUri": null,
+        "sha256": null,
+        "signatureUri": null
+      },
+      "hostCompatibility": {
+        "minimumVersion": "2022.0",
+        "maximumVersion": null,
+        "testedVersions": [],
+        "status": "untested"
+      },
+      "runtime": {
+        "transport": "stdio",
+        "command": null,
+        "arguments": [],
+        "requiredDependencies": []
+      },
+      "install": {
+        "strategy": "manual-review-required",
+        "installActions": [],
+        "uninstallActions": [],
+        "requiresElevation": false
+      },
+      "security": {
+        "reviewStatus": "not-reviewed",
+        "allowedCapabilities": [],
+        "blockedByDefault": true
+      }
+    }
+  ]
+}

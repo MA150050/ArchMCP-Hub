@@ -1,0 +1,51 @@
+PROPRIETARY SOFTWARE LICENSE — ALL RIGHTS RESERVED
+===============================================================================
+
+ArchMCP Hub (v1.0.0)
+Copyright (c) 2026 Mohamed Abd El-Hafez. All Rights Reserved.
+
+1. OWNERSHIP AND COPYRIGHT
+All original source code, application architecture, Windows Presentation Foundation (WPF)
+user interface designs, C#/.NET libraries, PowerShell automation scripts, Python
+compatibility shims, declarative registries, schemas, visual branding assets, icons,
+and technical documentation comprising ArchMCP Hub (collectively, the "Software") are
+the exclusive intellectual property of Mohamed Abd El-Hafez.
+
+2. NO GRANT OF OPEN-SOURCE LICENSE
+This Software is proprietary and is NOT licensed under any open-source license
+(such as MIT, Apache-2.0, GPL, or BSD). Making this repository publicly viewable
+on GitHub or distributing compiled release packages for inspection and personal
+evaluation does NOT grant any right or license—express or implied—to copy, fork
+for redistribution, modify, merge, publish, sublicense, sell, or commercially
+exploit the Software or any derivative works thereof without the prior written
+authorization of Mohamed Abd El-Hafez.
+
+3. PERMITTED PERSONAL & EVALUATION USE
+You may download, build, and execute the Software on your local Windows workstation
+solely for its intended purpose of discovering, installing, managing, repairing,
+and verifying Model Context Protocol (MCP) integrations for your legitimately
+licensed engineering and CAD/BIM applications, subject to the following conditions:
+  (a) You may not remove, obscure, or alter any copyright, ownership, or attribution
+      notices displayed in the source code, documentation, or user interface.
+  (b) You may not redistribute the Software, repackage it under another name, or
+      bundle it into commercial products or paid services without explicit written
+      permission from Mohamed Abd El-Hafez.
+  (c) You may not claim authorship or ownership of the Software or its branding.
+
+4. THIRD-PARTY COMPONENTS AND UPSTREAM MCP SERVERS
+ArchMCP Hub orchestrates and automates the installation of independent third-party
+upstream MCP servers, developer tools (such as Astral's `uv`), and runtime packages.
+Mohamed Abd El-Hafez does NOT claim ownership over any third-party upstream repositories,
+CAD host applications, or external libraries. Those components are downloaded directly
+from their respective official sources at installation time and remain governed by
+their own respective licenses (see `THIRD-PARTY-NOTICES.md` for full attributions
+and license provenance).
+
+5. DISCLAIMER OF WARRANTY AND LIMITATION OF LIABILITY
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER
+(MOHAMED ABD EL-HAFEZ) BE LIABLE FOR ANY CLAIM, DAMAGES, DATA LOSS, CAD DOCUMENT
+MODIFICATION, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR
+OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.

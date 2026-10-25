@@ -1,0 +1,14 @@
+Host,HostVersions,AIClient,ConfigRegistration,ServerStartsAndToolsList,ClientShowsTools,LiveHostOperation,OverallStatus,Evidence
+Revit,2022-2027,OpenCode,Unchanged baseline (reported working by owner),Unchanged baseline,Reported working by owner,Reported working by owner,Verified (owner-reported; code path unchanged in 1.1.4),Owner report on v1.1.3; OpenCode branch not modified
+AutoCAD,2021+,OpenCode,Unchanged baseline (reported working by owner),Unchanged baseline,Reported working by owner,Reported working by owner,Verified (owner-reported; code path unchanged in 1.1.4),Owner report on v1.1.3; OpenCode branch not modified
+Revit,2022-2027,Claude Desktop,Tested (Windows install log + Linux harness),Tested (Windows log: 48 tools),Owner-confirmed on v1.1.5,NOT tested (needs Revit open),Partially Verified (tools visible; live Revit op pending),tests/test_claude_desktop.ps1
+AutoCAD,2021+,Claude Desktop,Tested (Windows install log + Linux harness),Tested (Windows log: 217 tools),Owner reported Claude Desktop working on v1.1.5 (per-tool visibility not itemised),NOT tested (needs AutoCAD COM),Partially Verified,tests/test_claude_desktop.ps1
+Rhino,7-8,Claude Desktop,Shared code path only (not run for Rhino),Not tested,Not tested,Not tested,Unverified,No Rhino-specific test
+3ds Max,2021-2027,Claude Desktop,Shared code path only (not run for 3ds Max),Not tested,Not tested,Not tested,Unverified,No 3ds Max-specific test
+SketchUp,2021-2026,Claude Desktop,Shared code path only (not run for SketchUp),Not tested,Not tested,Not tested,Unverified,No SketchUp-specific test
+Rhino / 3ds Max / SketchUp,as listed,OpenCode,Existing code path (not changed),Not tested in this release,Not tested,Not tested,Unverified,Not re-audited in 1.1.4
+All hosts,as listed,Claude Code / OpenAI Codex / Google Antigravity,Existing code path (not changed; JSON/TOML/CLI writers),Not tested,Not tested,Not tested,Unverified,Advertised by project; not audited in 1.1.4
+Revit,2022-2027,Google Antigravity,Tested (path + registration),Tested offline: 2026-07-28 server/discover + legacy initialize = 48 tools (MCP SDK 2.x via compat entry),NOT tested on real Antigravity,NOT tested,Partially Verified,tests T7-T9
+AutoCAD,2021+,Google Antigravity,Registered (with warning),FAILS 2026-07-28 server/discover (fastmcp 3.x),NOT working,NOT tested,Unsupported until upstream moves to MCP SDK 2.x,Offline reproduction 1.1.8
+Rhino,7,OpenCode / Claude Desktop,Registered as venv python + main.py (1.1.9),Tested offline (Linux): legacy initialize = 7 tools,NOT tested,NOT tested (needs Rhino 7 + bridge script),Partially Verified (server layer only; Windows install pending),tests/test_rhino_env.ps1
+Rhino,7,Google Antigravity,Registered as MCP 2.x venv + compat entry,Tested offline (Linux): server/discover + initialize = 7 tools,NOT tested,NOT tested,Partially Verified (server layer only),tests/test_rhino_env.ps1

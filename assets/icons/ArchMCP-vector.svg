@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="512" height="512" role="img" aria-label="ArchMCP Hub Official Icon">
+  <title>ArchMCP Hub Official Icon</title>
+  <g>
+    <rect x="105" y="117" width="1035" height="1022" rx="220" ry="220" fill="#30B4A9" />
+    <path fill="#FDFCFD" shape-rendering="crispEdges" d="
+      M 383 323 H 876 V 387 H 947 V 457 H 665 V 741 H 578 V 651 H 416 V 806 H 358 V 917 H 254 V 741 H 312 V 387 H 383 Z
+      M 416 457 V 572 H 578 V 457 Z
+    " fill-rule="evenodd" />
+    <path fill="#FD921E" shape-rendering="crispEdges" d="
+      M 578 741 H 666 V 807 H 999 V 866 H 948 V 917 H 506 V 807 H 578 Z
+    " />
+</g>
+</svg>

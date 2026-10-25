@@ -1,0 +1,259 @@
+{
+  "$schema": "./integration-registry.schema.json",
+  "schemaVersion": 1,
+  "registryRevision": "1.0.0",
+  "generatedAtUtc": "2026-10-24T22:00:00Z",
+  "integrations": [
+    {
+      "id": "revit-mcp-server",
+      "hostId": "revit",
+      "displayName": "Autodesk Revit MCP Server (pyRevit Routes 2022-2027)",
+      "source": {
+        "kind": "github-release",
+        "repository": "Demolinator/revit-mcp-server",
+        "officialProject": false,
+        "releaseUri": "https://github.com/Demolinator/revit-mcp-server"
+      },
+      "release": {
+        "version": "1.2.1",
+        "channel": "stable",
+        "assetUri": "https://api.github.com/repos/Demolinator/revit-mcp-server/zipball/master",
+        "sha256": null,
+        "signatureUri": null
+      },
+      "hostCompatibility": {
+        "minimumVersion": "2022.0",
+        "maximumVersion": "2027.99",
+        "testedVersions": ["2022.0", "2023.0", "2024.0", "2025.0", "2026.0"],
+        "status": "untested"
+      },
+      "runtime": {
+        "transport": "stdio",
+        "command": "uv",
+        "arguments": ["run", "--directory", "%LOCALAPPDATA%\\ArchMCP Hub\\Integrations\\revit-mcp-server", "main.py"],
+        "requiredDependencies": ["pyrevit>=4.8.16", "uv"]
+      },
+      "install": {
+        "strategy": "host-native-extension",
+        "installActions": [
+          "download-github-source",
+          "uv-sync",
+          "deploy-pyrevit-extension",
+          "apply-revit-2022-elementid-shim",
+          "configure-pyrevit-routes-48884",
+          "register-agent-mcp",
+          "verify-routes-status"
+        ],
+        "uninstallActions": [
+          "remove-pyrevit-extension",
+          "unregister-agent-mcp"
+        ],
+        "requiresElevation": false
+      },
+      "security": {
+        "reviewStatus": "approved",
+        "allowedCapabilities": ["read-model", "create-elements", "modify-elements", "clash-detection", "export-ifc-pdf"],
+        "blockedByDefault": false
+      }
+    },
+    {
+      "id": "rhinomcp",
+      "hostId": "rhino",
+      "displayName": "RhinoMCP (Rhino 7 Python Bridge & Rhino 8 Yak Plugin)",
+      "source": {
+        "kind": "pypi",
+        "repository": "jingcheng-chen/rhinomcp",
+        "officialProject": false,
+        "releaseUri": "https://github.com/jingcheng-chen/rhinomcp/releases"
+      },
+      "release": {
+        "version": "0.1.4",
+        "channel": "stable",
+        "assetUri": "https://pypi.org/project/rhinomcp/",
+        "sha256": null,
+        "signatureUri": null
+      },
+      "hostCompatibility": {
+        "minimumVersion": "7.0",
+        "maximumVersion": "8.99",
+        "testedVersions": ["7.0", "8.0"],
+        "status": "untested"
+      },
+      "runtime": {
+        "transport": "stdio",
+        "command": "uvx",
+        "arguments": ["rhinomcp@latest"],
+        "requiredDependencies": ["uv"]
+      },
+      "install": {
+        "strategy": "managed-package",
+        "installActions": [
+          "yak-install-rhinomcp-or-rhino7-python-bridge",
+          "uv-tool-install-rhinomcp",
+          "register-agent-mcp",
+          "verify-tcp-bridge"
+        ],
+        "uninstallActions": [
+          "yak-uninstall-rhinomcp",
+          "unregister-agent-mcp"
+        ],
+        "requiresElevation": false
+      },
+      "security": {
+        "reviewStatus": "approved",
+        "allowedCapabilities": ["read-document", "create-geometry", "modify-objects", "grasshopper-canvas", "rhinoscript-python"],
+        "blockedByDefault": false
+      }
+    },
+    {
+      "id": "3dsmax-mcp",
+      "hostId": "3ds-max",
+      "displayName": "3ds Max MCP Server (2021-2027 Native GUP + MAXScript TCP)",
+      "source": {
+        "kind": "github-release",
+        "repository": "cl0nazepamm/3dsmax-mcp",
+        "officialProject": false,
+        "releaseUri": "https://github.com/cl0nazepamm/3dsmax-mcp/releases"
+      },
+      "release": {
+        "version": "1.7.6",
+        "channel": "stable",
+        "assetUri": "https://api.github.com/repos/cl0nazepamm/3dsmax-mcp/releases/latest",
+        "sha256": null,
+        "signatureUri": null
+      },
+      "hostCompatibility": {
+        "minimumVersion": "2021.0",
+        "maximumVersion": "2027.99",
+        "testedVersions": ["2021.0", "2022.0", "2023.0", "2024.0", "2025.0", "2026.0", "2027.0"],
+        "status": "untested"
+      },
+      "runtime": {
+        "transport": "stdio",
+        "command": "uv",
+        "arguments": ["run", "--directory", "%LOCALAPPDATA%\\ArchMCP Hub\\Integrations\\3dsmax-mcp", "3dsmax-mcp"],
+        "requiredDependencies": ["uv", "python>=3.12"]
+      },
+      "install": {
+        "strategy": "host-native-extension",
+        "installActions": [
+          "download-github-source",
+          "uv-sync",
+          "write-mcp-config-safe-mode",
+          "deploy-application-plugin-bundle-and-user-startup-maxscript",
+          "register-agent-mcp",
+          "verify-named-pipe-or-tcp-8765"
+        ],
+        "uninstallActions": [
+          "run-upstream-uninstall",
+          "unregister-agent-mcp"
+        ],
+        "requiresElevation": false
+      },
+      "security": {
+        "reviewStatus": "approved",
+        "allowedCapabilities": ["query-scene", "create-mesh", "materials", "modifiers", "lighting", "safe-mode-maxscript"],
+        "blockedByDefault": false
+      }
+    },
+    {
+      "id": "autocad-mcp-pro",
+      "hostId": "autocad",
+      "displayName": "AutoCAD MCP Pro (Live COM + Headless ezdxf)",
+      "source": {
+        "kind": "github-release",
+        "repository": "U-C4N/Autocad-MCP",
+        "officialProject": false,
+        "releaseUri": "https://github.com/U-C4N/Autocad-MCP/releases"
+      },
+      "release": {
+        "version": "1.6.0",
+        "channel": "stable",
+        "assetUri": "https://api.github.com/repos/U-C4N/Autocad-MCP/releases/latest",
+        "sha256": null,
+        "signatureUri": null
+      },
+      "hostCompatibility": {
+        "minimumVersion": "2021.0",
+        "maximumVersion": "2027.99",
+        "testedVersions": ["2021.0", "2022.0", "2023.0", "2024.0", "2025.0", "2026.0"],
+        "status": "untested"
+      },
+      "runtime": {
+        "transport": "stdio",
+        "command": "uv",
+        "arguments": ["run", "--directory", "%LOCALAPPDATA%\\ArchMCP Hub\\Integrations\\autocad-mcp", "autocad-mcp"],
+        "requiredDependencies": ["uv", "python>=3.11"]
+      },
+      "install": {
+        "strategy": "managed-package",
+        "installActions": [
+          "download-github-source",
+          "uv-sync-all-extras",
+          "register-agent-mcp-scoped-paths",
+          "verify-com-or-headless"
+        ],
+        "uninstallActions": [
+          "remove-managed-source",
+          "unregister-agent-mcp"
+        ],
+        "requiresElevation": false
+      },
+      "security": {
+        "reviewStatus": "approved",
+        "allowedCapabilities": ["drawing-lifecycle", "2d-geometry", "architecture-plan", "pid", "mechanical-iso", "com-live-control"],
+        "blockedByDefault": false
+      }
+    },
+    {
+      "id": "sketchup-mcp-hardened",
+      "hostId": "sketchup",
+      "displayName": "SketchUp MCP Hardened (No-Eval Ruby Extension + TCP Server)",
+      "source": {
+        "kind": "github-release",
+        "repository": "NeoNexAI/sketchup-mcp",
+        "officialProject": false,
+        "releaseUri": "https://github.com/NeoNexAI/sketchup-mcp"
+      },
+      "release": {
+        "version": "1.1.0",
+        "channel": "stable",
+        "assetUri": "https://api.github.com/repos/NeoNexAI/sketchup-mcp/zipball/main",
+        "sha256": null,
+        "signatureUri": null
+      },
+      "hostCompatibility": {
+        "minimumVersion": "2021.0",
+        "maximumVersion": "2026.99",
+        "testedVersions": ["2021.0", "2022.0", "2023.0", "2024.0", "2025.0", "2026.0"],
+        "status": "untested"
+      },
+      "runtime": {
+        "transport": "stdio",
+        "command": "%LOCALAPPDATA%\\ArchMCP Hub\\Integrations\\sketchup-mcp\\.venv\\Scripts\\python.exe",
+        "arguments": ["%LOCALAPPDATA%\\ArchMCP Hub\\Integrations\\sketchup-mcp\\archmcp_sketchup_server.py"],
+        "requiredDependencies": ["uv", "python>=3.10"]
+      },
+      "install": {
+        "strategy": "host-native-extension",
+        "installActions": [
+          "download-github-source",
+          "uv-pip-env-python312",
+          "deploy-sketchup-ruby-plugin",
+          "register-agent-mcp",
+          "verify-tcp-9876"
+        ],
+        "uninstallActions": [
+          "remove-sketchup-ruby-plugin",
+          "unregister-agent-mcp"
+        ],
+        "requiresElevation": false
+      },
+      "security": {
+        "reviewStatus": "approved",
+        "allowedCapabilities": ["status-check", "create-component", "transform-component", "boolean-ops", "chamfer-fillet", "export-scene"],
+        "blockedByDefault": false
+      }
+    }
+  ]
+}

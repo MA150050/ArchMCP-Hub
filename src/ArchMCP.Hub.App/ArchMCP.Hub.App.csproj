@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>ArchMCP.Hub</AssemblyName>
+    <Product>ArchMCP Hub</Product>
+    <Company>Mohamed Abd El-Hafez</Company>
+    <Authors>Mohamed Abd El-Hafez</Authors>
+    <Copyright>Copyright (c) 2026 Mohamed Abd El-Hafez. All Rights Reserved.</Copyright>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0</InformationalVersion>
+    <ApplicationIcon>Assets\ArchMCP.ico</ApplicationIcon>
+    <RootNamespace>ArchMCP.Hub.App</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ArchMCP.ico" />
+    <Resource Include="Assets\ArchMCP.png" />
+    <Content Include="..\..\scripts\ArchMCP-Common.ps1" Link="scripts\ArchMCP-Common.ps1" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\scripts\Install-Integration.ps1" Link="scripts\Install-Integration.ps1" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\scripts\Install-Revit-OpenCode.ps1" Link="scripts\Install-Revit-OpenCode.ps1" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\scripts\Install-Rhino-MCP.ps1" Link="scripts\Install-Rhino-MCP.ps1" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\scripts\Install-3dsMax-MCP.ps1" Link="scripts\Install-3dsMax-MCP.ps1" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\scripts\Install-AutoCAD-MCP.ps1" Link="scripts\Install-AutoCAD-MCP.ps1" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\scripts\Install-SketchUp-MCP.ps1" Link="scripts\Install-SketchUp-MCP.ps1" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\scripts\shims\archmcp_mcp2_entry.py" Link="scripts\shims\archmcp_mcp2_entry.py" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\registry\integrations.json" Link="registry\integrations.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\registry\integration-registry.schema.json" Link="registry\integration-registry.schema.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArchMCP.Hub.Core\ArchMCP.Hub.Core.csproj" />
+  </ItemGroup>
+</Project>

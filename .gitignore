@@ -1,0 +1,57 @@
+# ==============================================================================
+# ArchMCP Hub — Git Ignore Configuration
+# Copyright (c) 2026 Mohamed Abd El-Hafez. All Rights Reserved.
+# ==============================================================================
+
+# Visual Studio / .NET Build & Publish Artifacts
+.vs/
+.vscode/
+.idea/
+**/bin/
+**/obj/
+out/
+publish/
+dist/
+TestResults/
+coverage/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.nupkg
+*.snupkg
+
+# Local Bootstrapped Toolchains & Runtime Virtual Environments
+.tools/
+.venv/
+.venv-modern/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Diagnostics, Logs, Backups & Temporary Staging
+logs/
+*.log
+*.backup-*
+*.bak
+*.tmp
+*.temp
+
+# Credentials, Local Secrets & Machine-Specific Configs
+secrets.json
+*.env
+.env.*
+local.settings.json
+claude_desktop_config.json
+opencode.json
+mcp_config.json
+
+# OS Metadata
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+__MACOSX/

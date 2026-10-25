@@ -1,0 +1,100 @@
+name: Windows Build & Contract Validation
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-build:
+    name: Build, Unit Tests & PowerShell Contract Suite (Windows)
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run Python Contract, ASCII & Registry Schema Test Suite
+        run: python tests/run_all_tests.py
+
+      - name: Validate PowerShell 5.1 AST Syntax Across All Scripts
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $scripts = Get-ChildItem -Path .\scripts -Filter *.ps1 -Recurse
+          foreach ($s in $scripts) {
+              $tokens = $null
+              $errors = $null
+              [System.Management.Automation.Language.Parser]::ParseFile($s.FullName, [ref]$tokens, [ref]$errors) | Out-Null
+              if ($errors.Count -gt 0) {
+                  Write-Error "PowerShell AST syntax errors in $($s.Name): $($errors | Out-String)"
+                  exit 1
+              }
+              Write-Host "AST Syntax OK: $($s.Name)" -ForegroundColor Green
+          }
+
+      - name: Set up .NET 10.0 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+          dotnet-quality: 'ga'
+
+      - name: Restore Solution Dependencies
+        run: dotnet restore .\ArchMCP.Hub.sln
+
+      - name: Build Solution (Release)
+        run: dotnet build .\ArchMCP.Hub.sln -c Release --no-restore
+
+      - name: Run .NET Core xUnit Automated Tests
+        run: dotnet test .\ArchMCP.Hub.sln -c Release --no-build --verbosity normal
+
+      - name: Publish Self-Contained Windows x64 Release Package
+        run: |
+          dotnet publish .\src\ArchMCP.Hub.App\ArchMCP.Hub.App.csproj `
+            -c Release `
+            -r win-x64 `
+            --self-contained true `
+            -p:PublishSingleFile=true `
+            -p:IncludeNativeLibrariesForSelfExtract=true `
+            -o .\dist\win-x64
+
+      - name: Verify Published Output & Linked Runtime Assets
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $pub = '.\dist\win-x64'
+          $requiredPaths = @(
+              'ArchMCP.Hub.exe',
+              'scripts\ArchMCP-Common.ps1',
+              'scripts\Install-Integration.ps1',
+              'scripts\Install-Revit-OpenCode.ps1',
+              'scripts\Install-Rhino-MCP.ps1',
+              'scripts\Install-3dsMax-MCP.ps1',
+              'scripts\Install-AutoCAD-MCP.ps1',
+              'scripts\Install-SketchUp-MCP.ps1',
+              'scripts\shims\archmcp_mcp2_entry.py',
+              'registry\integrations.json',
+              'registry\integration-registry.schema.json'
+          )
+          foreach ($rel in $requiredPaths) {
+              $full = Join-Path $pub $rel
+              if (-not (Test-Path -LiteralPath $full -PathType Leaf)) {
+                  throw "Missing required published runtime asset: $full"
+              }
+              Write-Host "Verified published asset: $rel" -ForegroundColor Green
+          }
+          $ver = (Get-Item (Join-Path $pub 'ArchMCP.Hub.exe')).VersionInfo.ProductVersion
+          if ($ver -notmatch '^1\.0\.0') {
+              throw "Expected executable version 1.0.0, but got: $ver"
+          }

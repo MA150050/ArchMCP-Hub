@@ -1,0 +1,32 @@
+name: Compatibility or Feature Request
+description: Submit verified compatibility test results or propose an enhancement.
+title: "[Compatibility / Feature]: "
+labels: ["enhancement"]
+body:
+  - type: input
+    id: app_version
+    attributes:
+      label: ArchMCP Hub Version
+      value: "v1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: host_and_client
+    attributes:
+      label: Engineering Application & AI Client
+      placeholder: "e.g., Autodesk 3ds Max 2026 + Claude Desktop"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details / Compatibility Evidence / Proposal
+    validations:
+      required: true
+  - type: checkboxes
+    id: security_check
+    attributes:
+      label: Privacy & Security Confirmation
+      options:
+        - label: I confirm this submission contains no API keys, tokens, passwords, or sensitive credentials.
+          required: true
